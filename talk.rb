@@ -1,3 +1,4 @@
+# talk
 class Talk
   attr_reader :title, :duration
 
@@ -6,8 +7,8 @@ class Talk
     @duration = duration
   end
 
-  def starts_at(start_time)
-    puts "#{start_time.strftime("%I:%M %p")} #{@title} #{@duration} min"
+  def print_status(start_time)
+    puts "#{start_time.strftime('%I:%M %p')} #{@title} #{@duration} min"
   end
 
   def end_time(start_time)
@@ -15,19 +16,9 @@ class Talk
   end
 end
 
+# subclass of talk
 class LightningTalk < Talk
-  attr_reader :title, :duration
-
   def initialize(title)
-    @title = title
-    @duration = 5
+    super(title, 5)
   end
-
-  def starts_at(start_time)
-    super(start_time)
-  end
-
-  def end_time(start_time)
-    super(start_time)
-  end
-end 
+end
